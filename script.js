@@ -57,6 +57,7 @@ const imageFiles = [
   "740713722.jpg",
   "740713726.jpg"
 ];
+const imageBasePath = "./images/";
 
 const fullGallery = document.getElementById("fullGallery");
 const lightbox = document.getElementById("lightbox");
@@ -88,12 +89,12 @@ imageFiles.forEach((file, index) => {
   }
 
   const img = document.createElement("img");
-  img.src = file;
+  img.src = `${imageBasePath}${file}`;
   img.alt = `Bild av boendet ${index + 1}`;
   img.loading = "lazy";
   img.decoding = "async";
 
-  img.addEventListener("click", () => openLightbox(file, img.alt));
+  img.addEventListener("click", () => openLightbox(`${imageBasePath}${file}`, img.alt));
 
   figure.appendChild(img);
   fullGallery.appendChild(figure);
